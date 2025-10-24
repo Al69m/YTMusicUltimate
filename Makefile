@@ -22,4 +22,8 @@ ifeq ($(SIDELOADING),1)
 $(TWEAK_NAME)_FILES += Sideloading.xm
 endif
 
+# ✅ Ajoute ces deux lignes pour éviter l’erreur VLA générée par Logos
+ADDITIONAL_CFLAGS += -Wno-vla-cxx-extension
+ADDITIONAL_CFLAGS += -Wno-error=vla-cxx-extension
+
 include $(THEOS_MAKE_PATH)/tweak.mk
